@@ -16,6 +16,12 @@ const renderData = function (dataToBeRendered) {
     $("#mainContainer").append(summaryEl)
 };
 
+renderRandomActivity = function(activityToBeRendered){
+    let activityEl = $("<h3>").text(activityToBeRendered.activity);
+    $("#activity").text(activityToBeRendered.activity);
+  
+  }
+
 // for making an api call
 const getSearchData = function (searchTerm) {
     const url = `https://api.tvmaze.com/singlesearch/shows?q=${searchTerm}`
@@ -36,15 +42,36 @@ const getSearchData = function (searchTerm) {
     })
 };
 
+const getRandomActivity = function() {
+    const activityUrl = 'http://www.boredapi.com/api/activity/';
+  
+    fetch(activityUrl)
+    .then(function(response){
+      return response.json()
+    })
+    .then(function(data){
+      const randomActivity = {
+          activity: data.activity,
+      }
+      
+      renderRandomActivity(randomActivity)
+    })
+  }
+
 // on landing - check if there is something in localstorage
-// render based on that
+// render based on that - my list 
 // add event listener to search button
 $("#search").on('click', function() {
     // grab the value from text
     const searchInputValue = $("#text-inp").val();
     // pass it to api
     getSearchData(searchInputValue)
+
+    // show container
+    $(".container").css("display", "block")
 })
 
+$("#newActivity").on("click", getRandomActivity)
 
+// TODO: check if localstorage is present - show container
   
