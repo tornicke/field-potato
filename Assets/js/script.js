@@ -7,7 +7,7 @@ const renderData = function (dataToBeRendered) {
     var premieredEl = $("<p>").text(dataToBeRendered.premiered);
     var statusEl = $("<p>").text(dataToBeRendered.status);
     var ratingEl = $("<p>").text(dataToBeRendered.rating);
-    var summaryEl = $("<p>").text(dataToBeRendered.summary);
+    var summaryEl = $("<p>").html(dataToBeRendered.summary);
     $("#mainContainer").append(nameEl)
     $("#mainContainer").append(genresEl)
     $("#mainContainer").append(premieredEl)
