@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Adding a favicon-->
     <!--<link rel="shortcut icon" href="./Assets/favicon.png">--!> <!--FIX THE FAVICON-->
-    <link href="./Assets/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@blaze/css@x.x.x/dist/blaze/blaze.css">
+    <link rel="stylesheet" href="./Assets/css/style.css">
     <title>Field Potato</title>
 </head>
 <body>
@@ -32,14 +33,11 @@
             <div>Show</div>
             <div>OR</div>
             <div id="activity">Activity</div>
-            <button id="newActivity">generate new activity</button>
-            <button>activity completed</button>
-            <button>delete from list</button>
+            <button type="button" id="newActivity" class="c-button c-button--success">generate new activity</button>
+            <button type="button" class="c-button c-button--success">activity completed</button>
+            <button type="button" class="c-button c-button--success">delete from list</button>
         </div>
     </div>
-    
-    
-    
   </main>
 
     <script
@@ -49,4 +47,12 @@
     ></script>
     <script src="./Assets/js/script.js"></script>
 </body>
+
+<footer>
+    <p>Authors</p>
+    <p><a href="https://github.com/HenniePenny">Henriette</a> & <a href="https://github.com/tornicke">Tornike</a></p>
+    <p>2022</p>
+    <p>Created with fun, using the <a href="https://www.tvmaze.com/api">TV Maze</a> and the <a href="http://www.boredapi.com/">Bored</a> APIs</p>
+  </footer> 
+
 </html>
