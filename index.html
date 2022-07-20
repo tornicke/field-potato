@@ -11,12 +11,13 @@
     <title>Field Potato</title>
 </head>
 <body>
-  <!--Added the logo & alt text-->
-  <img src="./Assets/images/logo.png" alt="two people playing a game and having fun" width="235" height="118" class="logo">
-    <!--Added the tagline using Blaze UI-->
-  <h1 class="c-heading u-large" style="text-align: center;" id="tagline">countless ways to move you from couch to field</h1>
-
-  <nav>
+  <div class="o-container o-container--medium">  
+    <!--Added the logo & alt text-->
+    <img src="./Assets/images/logo.png" alt="two people playing a game and having fun" width="235" height="118" class="logo">
+        <!--Added the tagline using Blaze UI-->
+    <h1 class="c-heading u-large" style="text-align: center;" id="tagline">countless ways to move you from couch to field</h1>
+  </div>
+  <nav class="o-container o-container--medium">
       <ul>
           <li>home</li>
           <li>my list</li>
@@ -24,10 +25,14 @@
       </ul>
   </nav>
   <main>
-    <input id="text-inp"/>
-    <button id="search">Search</button>
-    <div id="mainContainer"></div>
-    <div class="container" style="display: none;">
+    <div id="search-show" class="o-container o-container--medium u-center-block u-centered">
+      <div class="u-absolute-center">
+        <input id="text-inp"/>
+        <button id="search">Search</button>
+      </div>
+    </div>
+    <div id="mainContainer" class="o-container o-container--medium u-centered"></div>
+    <div class="container o-container o-container--medium" style="display: none;">
         <div class="headingMyList">
             <h2>My List</h2>
         </div>
@@ -41,20 +46,19 @@
         </div>
     </div>
   </main>
-
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous"
-    ></script>
-    <script src="./Assets/js/script.js"></script>
-</body>
-
-<footer>
+  <footer id="footer" class="o-container o-container--medium u-centered ">
     <p>Authors</p>
     <p><a href="https://github.com/HenniePenny">Henriette</a> & <a href="https://github.com/tornicke">Tornike</a></p>
-    <p>2022</p>
+    <p>&copy 2022</p>
     <p>Created with fun, using the <a href="https://www.tvmaze.com/api">TV Maze</a> and the <a href="http://www.boredapi.com/">Bored</a> APIs</p>
-  </footer> 
+  </footer>
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"
+  ></script>
+  <script src="./Assets/js/script.js"></script>
+</body>
 
 </html>

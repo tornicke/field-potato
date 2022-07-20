@@ -7,3 +7,11 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+#search-show {
+    height: 100px;
+}
+
+#footer {
+    height: 200px;
+}
