@@ -1,13 +1,15 @@
 const renderData = function (dataToBeRendered) {
     $("#mainContainer").empty(); // empties the container before appending data
     // generate title dynamically
-    var nameEl = $("<h3>").text(dataToBeRendered.name);
+    // applying template literals to create a mix of static category names and dynamically updated search results
+    // spanning the category names to apply special styles to them + spanning the "showName" for bigger font
+    var nameEl = $("<p>").html(`<span id="showNameCategory">Show name:</span> <span id="showName">${dataToBeRendered.name}</span>`);
     nameEl.attr("class", "title") //just a test
-    var genresEl = $("<p>").text(dataToBeRendered.genres.join(", ")); // because this element has multiple results (genres)
-    var premieredEl = $("<p>").text(dataToBeRendered.premiered);
-    var statusEl = $("<p>").text(dataToBeRendered.status);
-    var ratingEl = $("<p>").text(dataToBeRendered.rating);
-    var summaryEl = $("<p>").html(dataToBeRendered.summary);
+    var genresEl = $("<p>").html(`<span id="genres">Genre(s):</span> ${dataToBeRendered.genres.join(", ")}`); // because this element has multiple results (genres)
+    var premieredEl = $("<p>").html(`<span id="premiered">Premiered (Y/M/D):</span> ${dataToBeRendered.premiered}`);
+    var statusEl = $("<p>").html(`<span id="status">Status:</span> ${dataToBeRendered.status}`);
+    var ratingEl = $("<p>").html(`<span id="rating">Rating (out of 10):</span> ${dataToBeRendered.rating}`);
+    var summaryEl = $("<p>").html(`<span id="summary">Summary: </span>${dataToBeRendered.summary}`);
     $("#mainContainer").append(nameEl)
     $("#mainContainer").append(genresEl)
     $("#mainContainer").append(premieredEl)

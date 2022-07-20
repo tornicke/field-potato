@@ -15,3 +15,32 @@
 #footer {
     height: 200px;
 }
+
+#showName {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#showNameCategory {
+    font-weight: bold;
+}
+
+#genres {
+    font-weight: bold;
+}
+
+#premiered {
+    font-weight: bold;
+}
+
+#status {
+    font-weight: bold;
+}
+
+#rating {
+    font-weight: bold;
+}
+
+#summary {
+    font-weight: bold;
+}
