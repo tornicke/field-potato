@@ -41,6 +41,7 @@ const getSearchData = function (searchTerm) {
             summary: data.summary,
         }
         renderData(dataToRender)
+        $(mainContainer).css({"border": "3px solid #2b0c8f", "box-sizing": "border-box"}) /*adding a dynamic border using jQuery*/
     })
 };
 
