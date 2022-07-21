@@ -12,6 +12,18 @@
     height: 100px;
 }
 
+#my-list {
+    height: 200px;
+}
+
+#table {
+    background-color: #F7DC6F;
+    padding: 5px;
+    border: 2px solid #2B0C8F;
+    border-radius: 10px;
+    margin: 3px;
+}
+
 #footer {
     height: 200px;
 }
