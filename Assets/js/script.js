@@ -43,15 +43,19 @@ const getSearchData = function (searchTerm) {
 };
 
 const getRandomActivity = function() {
-    const activityUrl = 'https://cors-anywhere.herokuapp.com/http://www.boredapi.com/api/activity/';
+    const activityUrl = 'http://www.boredapi.com/api/activity/';
   
-    fetch(activityUrl)
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(activityUrl)}`)
     .then(function(response){
       return response.json()
     })
     .then(function(data){
+      console.log(data.contents);
+      console.log(data.contents["activity"])
+      const activityData = JSON.parse(data.contents);
+      console.log(activityData);
       const randomActivity = {
-          activity: data.activity,
+          activity: activityData.activity,
       }
       
       renderRandomActivity(randomActivity)
