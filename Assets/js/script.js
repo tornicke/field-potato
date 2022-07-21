@@ -43,7 +43,7 @@ const getSearchData = function (searchTerm) {
 };
 
 const getRandomActivity = function() {
-    const activityUrl = 'http://www.boredapi.com/api/activity/';
+    const activityUrl = 'https://www.boredapi.com/api/activity/';
   
     fetch(activityUrl)
     .then(function(response){
