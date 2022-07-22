@@ -21,8 +21,8 @@ const renderData = function (dataToBeRendered) {
 renderRandomActivity = function(activityToBeRendered){
     let activityEl = $("<h3>").text(activityToBeRendered.activity);
     $("#activity").text(activityToBeRendered.activity);
-  
-  }
+
+}
 
 // for making an api call
 const getSearchData = function (searchTerm) {
@@ -46,24 +46,26 @@ const getSearchData = function (searchTerm) {
 };
 
 const getRandomActivity = function() {
-    const activityUrl = 'http://www.boredapi.com/api/activity/';
+    const activityUrl = 'https://api.allorigins.win/raw?url=http://www.boredapi.com/api/activity/';
   
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(activityUrl)}`)
+    // fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(activityUrl)}`)
+    fetch(activityUrl)
     .then(function(response){
       return response.json()
     })
     .then(function(data){
       console.log(data.contents);
-      console.log(data.contents["activity"])
-      const activityData = JSON.parse(data.contents);
-      console.log(activityData);
+      // console.log(data.contents["activity"])
+      // const activityData = JSON.parse(data.contents);
+      // console.log(activityData);
       const randomActivity = {
-          activity: activityData.activity,
+          // activity: activityData.activity,
+          activity: data.activity,
       }
       
       renderRandomActivity(randomActivity)
     })
-  }
+};
 
 // on landing - check if there is something in localstorage
 // render based on that - my list 
