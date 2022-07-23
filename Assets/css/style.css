@@ -26,16 +26,19 @@
     height: 200px;
 }
 
-#table {
+.table {
     background-color: #F7DC6F;
     padding: 5px;
     border: 2px solid #2B0C8F;
     border-radius: 10px;
     margin: 3px;
+    margin-bottom: 20px;
 }
 
 #footer {
-    height: 200px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 #showName {

@@ -5,10 +5,41 @@ function checkLocalStorage() {
     localStorage.setItem("myShows", JSON.stringify([]));
   }
 }
-checkLocalStorage();
+//checkLocalStorage();
+
+function renderShowOrActivity(name) {
+  var showNameEl = $("<div>").attr("class", "o-grid-text").text(name);
+  var showContainer = $("<div>").attr("class", "o-grid__cell o-grid__cell--width-30").append(showNameEl)
+  var orEl = $(`<div class="o-grid__cell o-grid__cell--width-10">
+    <div class="o-grid-text">OR</div>
+  </div>`)
+  var buttonsEl = $(`<div class="o-grid__cell o-grid__cell--width-30">
+    <button
+      type="button"
+      id="newActivity"
+      class="c-button c-button--success u-small"
+    >
+      new activity
+    </button>
+    <button type="button" class="c-button c-button--success u-small">
+      finished
+    </button>
+    <button type="button" class="c-button c-button--success u-small">
+      delete
+    </button>
+  </div>`);
+
+  var tableEl = $("<div>").attr("class", "table o-grid o-grid--small-fit o-grid--medium-fit o-grid--large-fit");
+
+  tableEl.append(showContainer)
+  tableEl.append(orEl)
+  tableEl.append(buttonsEl)
+
+  $("#my-list").append(tableEl)
+}
 
 function addShowToMyList(showName) {
-  var myShows = JSON.parse(localStorage.getItem("myShows"));
+  var myShows = localStorage.getItem("myShows")? JSON.parse(localStorage.getItem("myShows")):[];
 
   if (myShows.includes(showName)) {
     //if the list already includes the show with the same name
@@ -19,12 +50,16 @@ function addShowToMyList(showName) {
   //Removing the oldest search from the list, the new search replaces the removed one
   if (myShows.length >= 5) {
     myShows.splice(0, 1);
-    myShows.push(showName);
-    localStorage.setItem("myShows", JSON.stringify(myShows));
+    myShows.push(showName);    
   } else {
     myShows.push(showName);
-    localStorage.setItem("myShows", JSON.stringify(myShows));
-  }
+  } 
+  localStorage.setItem("myShows", JSON.stringify(myShows));
+  // 
+  // we want to create a table element
+  // add these values
+  renderShowOrActivity(showName)
+  /// add activity
 }
 
 const renderData = function (dataToBeRendered) {
@@ -129,3 +164,13 @@ $("#search").on("click", function () {
 $("#newActivity").on("click", getRandomActivity);
 
 // TODO: check if localstorage is present - show container
+if (localStorage.getItem("myShows")) {
+  // show the container
+  $(".container").css("display", "block");
+  // 
+  var myShows = JSON.parse(localStorage.getItem("myShows"))
+  for (let index = 0; index < myShows.length; index++) {
+    const showName = myShows[index];
+    renderShowOrActivity(showName)
+  }
+}
