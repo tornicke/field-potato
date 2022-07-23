@@ -46,11 +46,13 @@ const getSearchData = function (searchTerm) {
 };
 
 const getRandomActivity = function() {
-    const activityUrl = 'https://api.allorigins.win/raw?url=http://www.boredapi.com/api/activity/';
+    // const activityUrl = 'https://api.allorigins.win/raw?url=http://www.boredapi.com/api/activity/';
+    const activityUrl = 'https://cors.bridged.cc/<https://www.boredapi.com/api/activity/>';
   
     // fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(activityUrl)}`)
     fetch(activityUrl)
     .then(function(response){
+      console.log(response);
       return response.json()
     })
     .then(function(data){
