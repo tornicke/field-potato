@@ -57,7 +57,6 @@ function addShowToMyList(showName) {
 
   if (myShows.includes(showName)) {
     //if the list already includes the show with the same name
-    console.log("already exists");
     return;
   }
 
@@ -196,7 +195,6 @@ function renderShows() {
   if (localStorage.getItem("myShows")) {
     // show the container
     $(".container").css("display", "block");
-
     $(".table").remove();
 
     var myShows = JSON.parse(localStorage.getItem("myShows"));
