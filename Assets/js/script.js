@@ -5,21 +5,30 @@ function checkLocalStorage() {
     localStorage.setItem("myShows", JSON.stringify([]));
   }
 }
+
+//function to make sure the special characters do not ruin the functions
+function formatName(name) {
+  // remove all special characters
+  return name.replace(/[^a-zA-Z0-9]/g, "");
+}
 //checkLocalStorage();
 
 function renderShowOrActivity(name) {
+  const formattedName = formatName(name);
   var showNameEl = $("<div>").attr("class", "o-grid-text").text(name);
-  var showContainer = $("<div>").attr("class", "o-grid__cell o-grid__cell--width-30").append(showNameEl)
+  var showContainer = $("<div>")
+    .attr("class", "o-grid__cell o-grid__cell--width-30")
+    .append(showNameEl);
   var orEl = $(`<div class="o-grid__cell o-grid__cell--width-10">
     <div class="o-grid-text">OR</div>
-  </div>`)
+  </div>`);
+  var activityEl =
+    $(`<div class="activity-${formattedName} o-grid__cell o-grid__cell--width-30">
+    <div class="o-grid-text">Activity</div>
+  </div>`);
   var buttonsEl = $(`<div class="o-grid__cell o-grid__cell--width-30">
-    <button
-      type="button"
-      id="newActivity"
-      class="c-button c-button--success u-small"
-    >
-      new activity
+    <button type="button" data-show="${formattedName}" class="newActivity c-button c-button--success u-small">
+      generate activity
     </button>
     <button type="button" class="c-button c-button--success u-small">
       finished
@@ -29,37 +38,44 @@ function renderShowOrActivity(name) {
     </button>
   </div>`);
 
-  var tableEl = $("<div>").attr("class", "table o-grid o-grid--small-fit o-grid--medium-fit o-grid--large-fit");
+  var tableEl = $("<div>").attr(
+    "class",
+    "table o-grid o-grid--small-fit o-grid--medium-fit o-grid--large-fit"
+  );
 
-  tableEl.append(showContainer)
-  tableEl.append(orEl)
-  tableEl.append(buttonsEl)
+  tableEl.append(showContainer);
+  tableEl.append(orEl);
+  tableEl.append(activityEl);
+  tableEl.append(buttonsEl);
 
-  $("#my-list").append(tableEl)
+  $("#my-list").append(tableEl);
 }
 
 function addShowToMyList(showName) {
-  var myShows = localStorage.getItem("myShows")? JSON.parse(localStorage.getItem("myShows")):[];
+  var myShows = localStorage.getItem("myShows")
+    ? JSON.parse(localStorage.getItem("myShows"))
+    : [];
 
   if (myShows.includes(showName)) {
     //if the list already includes the show with the same name
-    console.log("already exists");
     return;
   }
 
   //Removing the oldest search from the list, the new search replaces the removed one
   if (myShows.length >= 5) {
     myShows.splice(0, 1);
-    myShows.push(showName);    
+    myShows.push(showName);
   } else {
     myShows.push(showName);
-  } 
+  }
   localStorage.setItem("myShows", JSON.stringify(myShows));
-  // 
+  //
   // we want to create a table element
   // add these values
-  renderShowOrActivity(showName)
+  //renderShowOrActivity(showName);
   /// add activity
+
+  renderShows();
 }
 
 const renderData = function (dataToBeRendered) {
@@ -98,14 +114,27 @@ const renderData = function (dataToBeRendered) {
   $("#mainContainer").append(summaryEl);
   $("#mainContainer").append(saveToMyListButton);
 
-  $("#saveToMyList").click(function () {
+  $("#saveToMyList").click(showModal);
+
+  $("#confirm-save").click(function () {
     addShowToMyList(dataToBeRendered.name);
+    closeModal();
   });
+  $(".close-modal").on("click", closeModal);
 };
 
-renderRandomActivity = function (activityToBeRendered) {
-  let activityEl = $("<h3>").text(activityToBeRendered.activity);
-  $("#activity").text(activityToBeRendered.activity);
+function showModal() {
+  $(".c-overlay").attr("class", "c-overlay c-overlay--visible");
+  $(".o-modal").attr("class", "o-modal o-modal--visible");
+}
+function closeModal() {
+  $(".c-overlay").attr("class", "c-overlay c-overlay--hidden");
+  $(".o-modal").attr("class", "o-modal o-modal--hidden");
+}
+
+renderRandomActivity = function (activityToBeRendered, showName) {
+  //let activityEl = $("<h3>").text(activityToBeRendered.activity);
+  $(`.activity-${showName}`).text(activityToBeRendered.activity);
 };
 
 // for making an api call
@@ -132,8 +161,9 @@ const getSearchData = function (searchTerm) {
     });
 };
 
-const getRandomActivity = function () {
-  const activityUrl = "http://www.boredapi.com/api/activity/";
+function getRandomActivity(e) {
+  var showName = $(e.target).data("show");
+  const activityUrl = "https://www.boredapi.com/api/activity/";
 
   fetch(activityUrl)
     .then(function (response) {
@@ -144,9 +174,9 @@ const getRandomActivity = function () {
         activity: data.activity,
       };
 
-      renderRandomActivity(randomActivity);
+      renderRandomActivity(randomActivity, showName);
     });
-};
+}
 
 // on landing - check if there is something in localstorage
 // render based on that - my list
@@ -161,16 +191,20 @@ $("#search").on("click", function () {
   $(".container").css("display", "block");
 });
 
-$("#newActivity").on("click", getRandomActivity);
-
 // TODO: check if localstorage is present - show container
-if (localStorage.getItem("myShows")) {
-  // show the container
-  $(".container").css("display", "block");
-  // 
-  var myShows = JSON.parse(localStorage.getItem("myShows"))
-  for (let index = 0; index < myShows.length; index++) {
-    const showName = myShows[index];
-    renderShowOrActivity(showName)
+function renderShows() {
+  if (localStorage.getItem("myShows")) {
+    // show the container
+    $(".container").css("display", "block");
+    $(".table").remove();
+
+    var myShows = JSON.parse(localStorage.getItem("myShows"));
+    for (let index = 0; index < myShows.length; index++) {
+      const showName = myShows[index];
+      renderShowOrActivity(showName);
+    }
+    $(".newActivity").on("click", getRandomActivity);
   }
 }
+
+renderShows();

@@ -113,6 +113,30 @@
         <a href="http://www.boredapi.com/">Bored</a> APIs
       </p>
     </footer>
+    <div aria-hidden class="c-overlay c-overlay--hidden"></div>
+    <div role="dialog" class="o-modal o-modal--hidden">
+      <div class="c-card u-center-block">
+        <header class="c-card__header">
+          <button type="button" class="c-button close-modal c-button--close">
+            &times;
+          </button>
+          <h2 class="c-heading">
+            Would you like to add this show to your list?
+          </h2>
+        </header>
+
+        <div class="c-card__body">
+          Your list will save 5 most recent additions.
+        </div>
+
+        <footer class="c-card__footer">
+          <button id="confirm-save" class="c-button c-button--info">
+            Save
+          </button>
+          <button type="button" class="c-button close-modal">Close</button>
+        </footer>
+      </div>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
