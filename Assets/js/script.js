@@ -6,6 +6,7 @@ function checkLocalStorage() {
   }
 }
 
+//function to make sure the special characters do not ruin the functions
 function formatName(name) {
   // remove all special characters
   return name.replace(/[^a-zA-Z0-9]/g, "");
@@ -27,7 +28,7 @@ function renderShowOrActivity(name) {
   </div>`);
   var buttonsEl = $(`<div class="o-grid__cell o-grid__cell--width-30">
     <button type="button" data-show="${formattedName}" class="newActivity c-button c-button--success u-small">
-      new activity
+      generate activity
     </button>
     <button type="button" class="c-button c-button--success u-small">
       finished
