@@ -13,12 +13,13 @@
 ![image](https://github.com/tornicke/field-potato/blob/writing-readme/Assets/images/Persona.png)
 
 <h2>Acceptance Criteria</h2>
-<li>GIVEN I am using a daily planner to create a schedule, WHEN I open the planner, THEN the current day is displayed at the top of the calendar</li>
-<li>WHEN I scroll down, THEN I am presented with timeblocks for standard business hours</li>
-<li>WHEN I view the timeblocks for that day, THEN each timeblock is color coded to indicate whether it is in the past, present, or future</li>
-<li>WHEN I click into a timeblock, THEN I can enter an event</li>
-<li>WWHEN I click the save button for that timeblock, THEN the text for that event is saved in local storage</li>
-<li>WHEN I refresh the page, THEN the saved events persist</li>
+<li>GIVEN I am using the "Field Potato" app, WHEN I open the app, THEN the search bar is displayed at the top of the page,</li>
+<li>WHEN I search for a TV show, THEN I am presented with information about that show,</li>
+<li>WHEN I click on "save", THEN a modal appears that asks me if I wast to add this show to my list,</li>
+<li>WHEN I save the show to my list, THEN a row appears with the show name,</li>
+<li>WWHEN I want to generate an alternative activity and click on the respective button, THEN a randomly suggested activity appears,</li>
+<li>WHEN I add more shows to my list, THEN I can save the five most recent additions to my list,</li>
+<li>WHEN I refresh the page, THEN I see the five most recent additions to my list.</li>
 
 <h2>Project Requirements</h2>
 <li>Uses a CSS framework other than Bootstrap,</li>
@@ -100,7 +101,11 @@ The below screenshots show the app at different stages:
 
 <h2>Video demo</h2>
 
-The video demo off the app is available [here](https://tornicke.github.io/field-potato/).
+The video demo off the app is available [here](https://drive.google.com/file/d/1GD2hbupHEryUdrUq-ii0JVg1WvgxpxZ0/view?usp=sharing).
+
+<h2>Credits</h2>
+
+We would like to recognize and thank Tudor and Navpreet for their tremendous help and support. This project would not get completed without their guidance and contribution.
 
 <h2>Required URLs:</h2>
 
