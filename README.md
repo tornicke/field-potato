@@ -10,7 +10,7 @@
 <h2>User Persona</h2>
 <p>Our user persona is Ingrid, a 26-year-old woman, who would like to make some changes to her life.</p>
 
-![image](https://github.com/tornicke/field-potato/blob/c5cb96e1e12f7ba972c60ef73d73154a34256588/Assets/images/Ingrid.png)
+![image](https://github.com/tornicke/field-potato/blob/c5cb96e1e12f7ba972c60ef73d73154a34256588/Assets/images/Persona.png)
 
 <h2>Acceptance Criteria</h2>
 <li>GIVEN I am using the "Field Potato" app, WHEN I open the app, THEN the search bar is displayed at the top of the page,</li>
