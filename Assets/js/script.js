@@ -5,7 +5,7 @@ function checkLocalStorage() {
     localStorage.setItem("myShows", JSON.stringify([]));
   }
 }
-checkLocalStorage();
+//checkLocalStorage();
 
 function renderShowOrActivity(name) {
   var showNameEl = $("<div>").attr("class", "o-grid-text").text(name);
@@ -61,8 +61,10 @@ function addShowToMyList(showName) {
   //
   // we want to create a table element
   // add these values
-  renderShowOrActivity(showName);
+  //renderShowOrActivity(showName);
   /// add activity
+
+  renderShows();
 }
 
 const renderData = function (dataToBeRendered) {
@@ -167,13 +169,17 @@ $("#search").on("click", function () {
 $("#newActivity").on("click", getRandomActivity);
 
 // TODO: check if localstorage is present - show container
-if (localStorage.getItem("myShows")) {
-  // show the container
-  $(".container").css("display", "block");
-  //
-  var myShows = JSON.parse(localStorage.getItem("myShows"));
-  for (let index = 0; index < myShows.length; index++) {
-    const showName = myShows[index];
-    renderShowOrActivity(showName);
+function renderShows() {
+  if (localStorage.getItem("myShows")) {
+    // show the container
+    $(".container").css("display", "block");
+    $(".table").remove();
+    var myShows = JSON.parse(localStorage.getItem("myShows"));
+    for (let index = 0; index < myShows.length; index++) {
+      const showName = myShows[index];
+      renderShowOrActivity(showName);
+    }
   }
 }
+
+renderShows();
