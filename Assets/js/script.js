@@ -9,10 +9,12 @@ function checkLocalStorage() {
 
 function renderShowOrActivity(name) {
   var showNameEl = $("<div>").attr("class", "o-grid-text").text(name);
-  var showContainer = $("<div>").attr("class", "o-grid__cell o-grid__cell--width-30").append(showNameEl)
+  var showContainer = $("<div>")
+    .attr("class", "o-grid__cell o-grid__cell--width-30")
+    .append(showNameEl);
   var orEl = $(`<div class="o-grid__cell o-grid__cell--width-10">
     <div class="o-grid-text">OR</div>
-  </div>`)
+  </div>`);
   var buttonsEl = $(`<div class="o-grid__cell o-grid__cell--width-30">
     <button
       type="button"
@@ -29,17 +31,22 @@ function renderShowOrActivity(name) {
     </button>
   </div>`);
 
-  var tableEl = $("<div>").attr("class", "table o-grid o-grid--small-fit o-grid--medium-fit o-grid--large-fit");
+  var tableEl = $("<div>").attr(
+    "class",
+    "table o-grid o-grid--small-fit o-grid--medium-fit o-grid--large-fit"
+  );
 
-  tableEl.append(showContainer)
-  tableEl.append(orEl)
-  tableEl.append(buttonsEl)
+  tableEl.append(showContainer);
+  tableEl.append(orEl);
+  tableEl.append(buttonsEl);
 
-  $("#my-list").append(tableEl)
+  $("#my-list").append(tableEl);
 }
 
 function addShowToMyList(showName) {
-  var myShows = localStorage.getItem("myShows")? JSON.parse(localStorage.getItem("myShows")):[];
+  var myShows = localStorage.getItem("myShows")
+    ? JSON.parse(localStorage.getItem("myShows"))
+    : [];
 
   if (myShows.includes(showName)) {
     //if the list already includes the show with the same name
@@ -50,15 +57,15 @@ function addShowToMyList(showName) {
   //Removing the oldest search from the list, the new search replaces the removed one
   if (myShows.length >= 5) {
     myShows.splice(0, 1);
-    myShows.push(showName);    
+    myShows.push(showName);
   } else {
     myShows.push(showName);
-  } 
+  }
   localStorage.setItem("myShows", JSON.stringify(myShows));
-  // 
+  //
   // we want to create a table element
   // add these values
-  renderShowOrActivity(showName)
+  renderShowOrActivity(showName);
   /// add activity
 }
 
@@ -132,28 +139,30 @@ const getSearchData = function (searchTerm) {
     });
 };
 
-const getRandomActivity = function() {
-    // const activityUrl = 'https://api.allorigins.win/raw?url=http://www.boredapi.com/api/activity/';
-    const activityUrl = 'https://cors.bridged.cc/<https://www.boredapi.com/api/activity/>';
-  
-    // fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(activityUrl)}`)
-    fetch(activityUrl)
-    .then(function(response){
+const getRandomActivity = function () {
+  // const activityUrl = 'https://api.allorigins.win/raw?url=http://www.boredapi.com/api/activity/';
+  const activityUrl =
+    "https://cors.bridged.cc/<https://www.boredapi.com/api/activity/>";
+  // const activityUrl = 'http://www.boredapi.com/api/activity/';
+
+  // fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(activityUrl)}`)
+  fetch(activityUrl)
+    .then(function (response) {
       console.log(response);
-      return response.json()
+      return response.json();
     })
-    .then(function(data){
+    .then(function (data) {
       console.log(data.contents);
-      // console.log(data.contents["activity"])
-      // const activityData = JSON.parse(data.contents);
-      // console.log(activityData);
+      console.log(data.contents["activity"]);
+      const activityData = JSON.parse(data.contents);
+      console.log(activityData);
       const randomActivity = {
-          // activity: activityData.activity,
-          activity: data.activity,
-      }
-      
-      renderRandomActivity(randomActivity)
-    })
+        activity: activityData.activity,
+        activity: data.activity,
+      };
+
+      renderRandomActivity(randomActivity);
+    });
 };
 
 // on landing - check if there is something in localstorage
@@ -175,10 +184,10 @@ $("#newActivity").on("click", getRandomActivity);
 if (localStorage.getItem("myShows")) {
   // show the container
   $(".container").css("display", "block");
-  // 
-  var myShows = JSON.parse(localStorage.getItem("myShows"))
+  //
+  var myShows = JSON.parse(localStorage.getItem("myShows"));
   for (let index = 0; index < myShows.length; index++) {
     const showName = myShows[index];
-    renderShowOrActivity(showName)
+    renderShowOrActivity(showName);
   }
 }
