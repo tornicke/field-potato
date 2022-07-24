@@ -7,6 +7,11 @@
 <p>AS A user who is interested in TV shows, I WANT TO look up information about TV shows and when I add them to my list I want to have the chance to see an alternative activity to do, SO THAT I can compare my original pastime idea with the suggested one.
 </p>
 
+<h2>User Persona</h2>
+<p>Our user persona is Ingrid, a 26-year-old woman, who would like to make some changes to her life.</p>
+
+![image](https://github.com/tornicke/field-potato/blob/writing-readme/Assets/images/Persona.png)
+
 <h2>Acceptance Criteria</h2>
 <li>GIVEN I am using a daily planner to create a schedule, WHEN I open the planner, THEN the current day is displayed at the top of the calendar</li>
 <li>WHEN I scroll down, THEN I am presented with timeblocks for standard business hours</li>
