@@ -67,31 +67,31 @@ The below screenshots show the app at different stages:
 
 1. When loading the page for the first time (when the user's local storage is clean)
 
-![image](https://github.com/tornicke/work-day-scheduler/blob/main/Assets/screenshot.png)
+![image](https://github.com/tornicke/field-potato/blob/a0b65e68b7b14b9d35eaf2abc7a01c413badcfae/Assets/images/Screenshot1.png)
 
 2. When the search is made (before the show is added to the user's list)
 
-![image](https://github.com/tornicke/work-day-scheduler/blob/main/Assets/screenshot.png)
+![image](https://github.com/tornicke/field-potato/blob/a0b65e68b7b14b9d35eaf2abc7a01c413badcfae/Assets/images/Screenshot2.png)
 
 3. When the "save" button is clicked and the modal appears (after the search has been made)
 
-![image](https://github.com/tornicke/work-day-scheduler/blob/main/Assets/screenshot.png)
+![image](https://github.com/tornicke/field-potato/blob/a0b65e68b7b14b9d35eaf2abc7a01c413badcfae/Assets/images/Screenshot3.png)
 
 4. When one show is saved in the list
 
-![image](https://github.com/tornicke/work-day-scheduler/blob/main/Assets/screenshot.png)
+![image](https://github.com/tornicke/field-potato/blob/a0b65e68b7b14b9d35eaf2abc7a01c413badcfae/Assets/images/Screenshot4.png)
 
 5. When five shows are saved in the list
 
-![image](https://github.com/tornicke/work-day-scheduler/blob/main/Assets/screenshot.png)
+![image](https://github.com/tornicke/field-potato/blob/a0b65e68b7b14b9d35eaf2abc7a01c413badcfae/Assets/images/Screenshot5.png)
 
 6. When the sixth addition replaces the oldest added show in the list
 
-![image](https://github.com/tornicke/work-day-scheduler/blob/main/Assets/screenshot.png)
+![image](https://github.com/tornicke/field-potato/blob/a0b65e68b7b14b9d35eaf2abc7a01c413badcfae/Assets/images/Screenshot6.png)
 
 7. and when the user displays all activities (one for each show)
 
-![image](https://github.com/tornicke/work-day-scheduler/blob/main/Assets/screenshot.png)
+![image](https://github.com/tornicke/field-potato/blob/a0b65e68b7b14b9d35eaf2abc7a01c413badcfae/Assets/images/Screenshot7.png)
 
 <h2>Video demo</h2>
 
