@@ -1,3 +1,15 @@
+/**
+ * Feedback
+ *
+ * Stay consistent in the method you use to define functions - stick with
+ * either function declaration or function expression.
+ *
+ * Remove the comments regarding future improvements.
+ * They should be saved as issues instead.
+ *
+ * Remove unused / commented code before pushing changes to the main branch.
+ */
+
 function checkLocalStorage() {
   var myShows = JSON.parse(localStorage.getItem("myShows"));
 
@@ -127,6 +139,7 @@ function showModal() {
   $(".c-overlay").attr("class", "c-overlay c-overlay--visible");
   $(".o-modal").attr("class", "o-modal o-modal--visible");
 }
+
 function closeModal() {
   $(".c-overlay").attr("class", "c-overlay c-overlay--hidden");
   $(".o-modal").attr("class", "o-modal o-modal--hidden");
